@@ -12,11 +12,11 @@ const projects: ProjectDetail[] = [
     id: 1,
     title: 'FastBite',
     tagline: 'Mobile food ordering & delivery app built with Flutter',
-    description: 'A cross-platform food ordering mobile app built with Flutter & Dart, featuring multi-payment integration (PayPal, VNPay, MoMo), real-time order tracking, and a seamless user experience.',
+    description: 'A cross-platform food ordering mobile app built with Flutter & Dart, featuring multi-payment integration (PayPal, VNPay), real-time order tracking, and a seamless user experience.',
     longDescription:
-      'FastBite is a complete mobile food ordering and delivery application designed to bring restaurants closer to customers. Built with Flutter & Dart for a single codebase across iOS and Android, the app delivers a smooth, native-feel experience with rich animations and gesture-based navigation. The backend is powered by Firebase for real-time data, authentication, and cloud storage, while the checkout flow supports popular payment gateways (PayPal, VNPay, MoMo) to serve both local and international users. From browsing menus and customizing orders to tracking delivery in real time, FastBite covers the full customer journey.',
+      'FastBite is a complete mobile food ordering and delivery application designed to bring restaurants closer to customers. Built with Flutter & Dart for a single codebase across iOS and Android, the app delivers a smooth, native-feel experience with rich animations and gesture-based navigation. The backend is powered by Firebase for real-time data, authentication, and cloud storage, while the checkout flow supports popular payment gateways (PayPal, VNPay) to serve both local and international users. From browsing menus and customizing orders to tracking delivery in real time, FastBite covers the full customer journey.',
     image: '/projects/fastbite/1.png',
-    tags: ['Flutter', 'Dart', 'Firebase', 'PayPal', 'VNPay', 'MoMo'],
+    tags: ['Flutter', 'Dart', 'Firebase', 'PayPal', 'VNPay'],
     github: '#',
     live: '#',
     featured: true,
@@ -28,7 +28,7 @@ const projects: ProjectDetail[] = [
       'Smart search with filters by cuisine, price, rating, and delivery time',
       'Customize orders with options, add-ons, special instructions, and quantity controls',
       'Real-time order tracking from preparation to delivery on an interactive map',
-      'Multi-payment gateway support: PayPal, VNPay, and MoMo for local & international users',
+      'Multi-payment gateway support: PayPal and VNPay for local & international users',
       'User authentication and profile management powered by Firebase Auth',
       'Order history, reorder favorite meals in one tap, and push notifications for order updates',
       'Customer reviews, ratings, and in-app chat support for restaurant owners',
@@ -39,157 +39,79 @@ const projects: ProjectDetail[] = [
       { name: 'Firebase', purpose: 'Auth, Firestore, Cloud Messaging' },
       { name: 'PayPal', purpose: 'International payments' },
       { name: 'VNPay', purpose: 'Vietnamese online payments' },
-      { name: 'MoMo', purpose: 'Mobile wallet payments' },
     ],
   },
   {
     id: 2,
-    title: 'AI Chat Application',
-    tagline: 'Real-time messaging powered by artificial intelligence',
-    description: 'Real-time chat application with AI-powered responses, message threading, and end-to-end encryption.',
+    title: 'TourRaveloGo',
+    tagline: 'AI-powered tour booking website with smart search',
+    description: 'A full-featured tour booking platform with AI chatbot, natural language search, and integrated VNPay payment gateway.',
     longDescription:
-      'A sophisticated real-time chat platform combining modern messaging features with AI-powered assistance. Leveraging WebSocket for instant communication and the OpenAI API for intelligent responses, it includes end-to-end encryption, message threading, and a beautiful, responsive UI.',
-    image: 'https://images.pexels.com/photos/8386443/pexels-photo-8386443.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['React', 'OpenAI API', 'WebSocket', 'Redis'],
-    github: '#',
+      'TourRaveloGo is a comprehensive tour booking website built with Spring Boot and MySQL, designed to help travelers discover and book tours effortlessly. It features AI-powered chatbot for instant customer assistance, natural language search powered by AI that helps users find tours through conversational queries, and a complete booking flow with VNPay online payment gateway integration. The platform supports full CRUD operations for tour management, blog posts, user accounts, and includes pagination for smooth browsing of large datasets.',
+    image: '/projects/tourravelogo/1.png',
+    tags: ['Spring Boot', 'MySQL', 'Docker', 'VNPay', 'AI'],
+    github: 'https://github.com/MinhTrietDev03/SpringBootCapstone.git',
     live: '#',
     featured: true,
     icon: Sparkles,
-    previewUrl: 'https://demo.example.com/ai-chat',
+    previewUrl: 'https://demo.example.com/tourravelogo',
     features: [
-      'AI-powered smart replies',
-      'End-to-end encryption',
-      'Real-time message delivery',
-      'Threaded conversations',
-      'File & media sharing',
-      'Typing indicators & read receipts',
+      'User authentication and authorization using Spring Security with JWT tokens',
+      'Complete tour management — create, read, update, delete tours with rich media',
+      'AI-powered chatbot providing instant customer support and FAQ responses',
+      'Natural language AI search — users can describe tours in plain language to get personalized recommendations',
+      'VNPay payment gateway integration with callback processing to sync order status after successful payment',
+      'Booking management with order tracking and payment confirmation',
+      'Blog system for travel articles and destination guides',
+      'Pagination, filtering, and sorting for tour and blog listings',
+      'Deployed with Docker for consistent environments across development and production',
     ],
     techStack: [
-      { name: 'React', purpose: 'Frontend UI' },
-      { name: 'OpenAI API', purpose: 'AI responses' },
-      { name: 'WebSocket', purpose: 'Real-time comms' },
-      { name: 'Redis', purpose: 'Caching & pub/sub' },
+      { name: 'Spring Boot', purpose: 'Backend framework & REST APIs' },
+      { name: 'MySQL', purpose: 'Relational database' },
+      { name: 'Docker', purpose: 'Containerization & deployment' },
+      { name: 'VNPay', purpose: 'Online payment gateway' },
+      { name: 'Spring Security + JWT', purpose: 'Authentication & authorization' },
+      { name: 'AI / NLP', purpose: 'Chatbot & natural language search' },
     ],
   },
   {
     id: 3,
-    title: 'Project Management Tool',
-    tagline: 'Collaborative workspace for modern teams',
-    description: 'Collaborative project management tool with Kanban boards, time tracking, and team analytics.',
+    title: 'Employee Management System',
+    tagline: 'Enterprise employee management built with Java & JSP',
+    description: 'A comprehensive employee management system with full CRUD operations, role-based access control, and responsive Bootstrap interfaces.',
     longDescription:
-      'A comprehensive project management platform that helps teams collaborate effectively. Features include drag-and-drop Kanban boards, time tracking with detailed reports, team analytics dashboards, and seamless integrations with popular developer tools.',
-    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['Vue.js', 'Node.js', 'MongoDB', 'Docker'],
-    github: '#',
+      'Employee Management System (CMR08) is a robust enterprise application designed to streamline HR operations within organizations. Built with Java, JSP, Servlet, and JDBC connected to a MySQL database, the system provides complete CRUD modules for employee data management, secure authentication, and granular role-based access control. The frontend is built with responsive JSP pages styled using Bootstrap, providing a clean and accessible interface across devices.',
+    image: '/projects/ems/1.png',
+    tags: ['Java', 'JSP', 'Servlet', 'MySQL', 'Bootstrap'],
+    github: 'https://github.com/MinhTrietDev03/CMR08.git',
     live: '#',
     featured: true,
     icon: Layers,
-    previewUrl: 'https://demo.example.com/pm-tool',
+    previewUrl: 'https://demo.example.com/employee-management',
+    gallery: Array.from({ length: 7 }, (_, i) => `/projects/ems/${i + 1}.png`),
     features: [
-      'Drag-and-drop Kanban boards',
-      'Time tracking & reporting',
-      'Team performance analytics',
-      'Role-based access control',
-      'Email & push notifications',
-      'API integrations',
+      'Full CRUD operations for employee records — create, read, update, and delete',
+      'Secure user authentication with login, logout, and session management',
+      'Role-based access control (RBAC) — Admin, Manager, and Employee roles',
+      'Responsive Bootstrap-based UI for desktop and mobile browsers',
+      'Business logic layer implemented in Java Servlets with clean separation of concerns',
+      'Database connectivity via JDBC with parameterized queries to prevent SQL injection',
+      'Search, filter, and paginate employee lists for large datasets',
+      'Department and position management modules',
     ],
     techStack: [
-      { name: 'Vue.js', purpose: 'Reactive UI' },
-      { name: 'Node.js', purpose: 'Backend API' },
-      { name: 'MongoDB', purpose: 'Document store' },
-      { name: 'Docker', purpose: 'Containerization' },
-    ],
-  },
-  {
-    id: 4,
-    title: 'Security Dashboard',
-    tagline: 'Enterprise-grade threat monitoring and response',
-    description: 'Enterprise security monitoring dashboard with real-time threat detection and incident response.',
-    longDescription:
-      'An enterprise security monitoring platform that provides real-time visibility into an organization\'s security posture. Built with D3.js for advanced data visualization and Python for backend analytics, it helps security teams detect and respond to threats quickly.',
-    image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['React', 'D3.js', 'Python', 'AWS'],
-    github: '#',
-    live: '#',
-    featured: false,
-    icon: Shield,
-    previewUrl: 'https://demo.example.com/security',
-    features: [
-      'Real-time threat detection',
-      'Interactive security dashboards',
-      'Automated incident response',
-      'Compliance reporting',
-      'Log aggregation & search',
-      'Custom alert rules',
-    ],
-    techStack: [
-      { name: 'React', purpose: 'Admin UI' },
-      { name: 'D3.js', purpose: 'Data visualization' },
-      { name: 'Python', purpose: 'Analytics engine' },
-      { name: 'AWS', purpose: 'Cloud infrastructure' },
-    ],
-  },
-  {
-    id: 5,
-    title: 'Social Media Analytics',
-    tagline: 'Deep insights into your social presence',
-    description: 'Comprehensive analytics platform for social media metrics with custom reporting and data visualization.',
-    longDescription:
-      'A powerful analytics platform that helps brands understand their social media performance. With custom reporting, beautiful data visualizations powered by Chart.js, and a GraphQL API for flexible data queries, it turns complex metrics into actionable insights.',
-    image: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['Next.js', 'Chart.js', 'GraphQL', 'PostgreSQL'],
-    github: '#',
-    live: '#',
-    featured: false,
-    icon: Layers,
-    previewUrl: 'https://demo.example.com/social-analytics',
-    features: [
-      'Multi-platform integration',
-      'Custom report builder',
-      'Engagement analytics',
-      'Competitor benchmarking',
-      'Scheduled report delivery',
-      'Export to PDF/CSV',
-    ],
-    techStack: [
-      { name: 'Next.js', purpose: 'Full-stack framework' },
-      { name: 'Chart.js', purpose: 'Charts & graphs' },
-      { name: 'GraphQL', purpose: 'Flexible API' },
-      { name: 'PostgreSQL', purpose: 'Data warehouse' },
-    ],
-  },
-  {
-    id: 6,
-    title: 'Real Estate Platform',
-    tagline: 'Modern property search with virtual tours',
-    description: 'Property listing and management platform with virtual tours, mortgage calculator, and lead generation.',
-    longDescription:
-      'A modern real estate platform that transforms how people buy, sell, and rent properties. Featuring immersive Three.js virtual tours, a built-in mortgage calculator, advanced search filters, and integrated lead generation for agents and brokers.',
-    image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['React', 'Three.js', 'Node.js', 'MongoDB'],
-    github: '#',
-    live: '#',
-    featured: false,
-    icon: Zap,
-    previewUrl: 'https://demo.example.com/realestate',
-    features: [
-      'Immersive 3D virtual tours',
-      'Advanced property search',
-      'Mortgage calculator',
-      'Lead capture & CRM',
-      'Map-based browsing',
-      'Saved favorites & alerts',
-    ],
-    techStack: [
-      { name: 'React', purpose: 'User interface' },
-      { name: 'Three.js', purpose: '3D virtual tours' },
-      { name: 'Node.js', purpose: 'API server' },
-      { name: 'MongoDB', purpose: 'Property data' },
+      { name: 'Java', purpose: 'Backend logic & Servlet' },
+      { name: 'JSP', purpose: 'Server-side rendering' },
+      { name: 'Servlet', purpose: 'Request handling' },
+      { name: 'JDBC', purpose: 'Database connectivity' },
+      { name: 'MySQL', purpose: 'Relational database' },
+      { name: 'Bootstrap', purpose: 'Responsive UI design' },
     ],
   },
 ];
 
-const categories = ['All', 'Featured', 'Web Apps', 'Mobile', 'Full Stack'];
+const categories = ['All', 'Featured', 'Web App', 'Mobile'];
 
 export default function Projects() {
   const ref = useRef(null);
@@ -199,11 +121,13 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : activeCategory === 'Featured'
-    ? projects.filter(p => p.featured)
-    : projects;
+  const filteredProjects = (() => {
+    if (activeCategory === 'All') return projects;
+    if (activeCategory === 'Featured') return projects.filter(p => p.featured);
+    if (activeCategory === 'Mobile') return projects.filter(p => p.tags.some(t => /flutter|dart/i.test(t)));
+    if (activeCategory === 'Web App') return projects.filter(p => !p.tags.some(t => /flutter|dart/i.test(t)));
+    return projects;
+  })();
 
   const openProjectDetail = (project: ProjectDetail) => {
     setSelectedProject(project);

@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import {
   Briefcase,
   GraduationCap,
@@ -120,28 +120,100 @@ export default function About() {
   );
 }
 
-/**
- * Ảnh profile đơn giản ở giữa - bỏ tất cả badge/vòng trang trí
- * để bố cục hài hòa, tập trung vào ảnh
- */
 function ProfileWithTechBadges({ isInView }: { isInView: boolean }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % 4);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isInView]);
+
   return (
     <div className="relative w-full max-w-sm flex justify-center">
-      {/* Glow halo phía sau ảnh */}
-      <div className="absolute -inset-8 bg-gradient-to-br from-cyan-500/20 via-indigo-500/15 to-pink-500/15 rounded-2xl blur-3xl -z-10" />
+      {/* Ambient glow behind carousel */}
+      <div className="absolute -inset-8 bg-gradient-to-br from-cyan-500/15 via-indigo-500/10 to-pink-500/10 rounded-2xl blur-3xl -z-10" />
 
+      {/* Outer frame with soft border */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/25"
+        className="relative w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-cyan-500/10"
       >
-        <img
-          src="/profile-suit.png"
-          alt="Le Minh Triet"
-          className="w-full h-full object-cover"
+        {/* Image carousel */}
+        {['/profile-1.png', '/profile-suit.png', '/profile-2.png', '/profile-3.png'].map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0"
+            style={{ opacity: currentIndex === i ? 1 : 0, transition: 'opacity 0.8s ease-in-out' }}
+          >
+            <img src={src} alt={`Profile ${i + 1}`} className="w-full h-full object-cover" />
+          </div>
+        ))}
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-950/80 to-transparent" />
+
+        {/* Top shine line */}
+        <motion.div
+          animate={{ x: ['-100%', '200%'] }}
+          transition={{ duration: 3, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
+          className="absolute top-0 left-0 w-1/2 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
+
+        {/* Carousel dot indicators */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+          {[0, 1, 2, 3].map((i) => (
+            <motion.button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className="h-1.5 rounded-full transition-all duration-300 cursor-pointer"
+              animate={{ width: currentIndex === i ? 24 : 8, backgroundColor: currentIndex === i ? '#22d3ee' : '#475569' }}
+              transition={{ duration: 0.3 }}
+              aria-label={`View profile ${i + 1}`}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Floating ambient particles */}
+      <motion.div
+        animate={{ y: [0, -12, 0], opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-6 -right-6 w-2 h-2 rounded-full bg-cyan-400/60"
+      />
+      <motion.div
+        animate={{ y: [0, 10, 0], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        className="absolute bottom-12 -left-4 w-1.5 h-1.5 rounded-full bg-pink-400/60"
+      />
+      <motion.div
+        animate={{ y: [0, -8, 0], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        className="absolute top-1/3 -left-8 w-2 h-2 rounded-full bg-indigo-400/50"
+      />
+
+      {/* Floating label badge */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        className="absolute -bottom-4 -right-4 sm:right-auto sm:left-0 px-3 py-1.5 rounded-lg glass-card border border-cyan-500/30 shadow-lg shadow-cyan-500/10"
+      >
+        <div className="flex items-center gap-1.5">
+          <motion.div
+            animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-2 h-2 rounded-full bg-green-400"
+          />
+          <span className="text-xs font-medium text-slate-200">Available for work</span>
+        </div>
       </motion.div>
     </div>
   );

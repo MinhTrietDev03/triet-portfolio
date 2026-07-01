@@ -5,7 +5,7 @@ import { Menu, X, Mail, Sparkles } from 'lucide-react';
 const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'experience', label: 'Experiences' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
 ];

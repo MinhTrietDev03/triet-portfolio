@@ -14,9 +14,9 @@ const experiences = [
     highlights: [
       'Implemented 15+ REST endpoints with proper authentication',
       'Wrote unit and integration tests with JUnit / Mockito',
-      'Deployed services on AWS EC2 with Docker',
+      'Containerized and deployed backend services using Docker Compose',
     ],
-    tech: ['Java', 'Spring Boot', 'MySQL', 'Docker', 'AWS'],
+    tech: ['Java', 'Spring Boot', 'MySQL', 'Docker'],
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const experiences = [
     description:
       'Delivered backend solutions for small businesses and startups. Built RESTful APIs, integrated third-party services, and maintained production systems.',
     highlights: [
-      'Developed FastBite — a cross-platform food ordering app with Flutter & Firebase',
+      'Developed blockchain-based decentralized application using Solidity and Web3.js',
       'Designed and deployed REST APIs using Java Spring Boot',
       'Integrated payment gateways and authentication services for client projects',
     ],
